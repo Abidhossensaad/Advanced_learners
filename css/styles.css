@@ -1,0 +1,584 @@
+
+/* Nav section */
+/* Brand */
+.navbar-brand {
+  color: rgb(255, 128, 0) !important;
+  font-weight:800 !important;
+  font-size: 1.5rem !important;
+}
+.underline-nav {
+  border: 2px solid #00000099 !important;
+}
+
+/* Regular Nav Items */
+.custom-nav .custom-nav-item {
+  color: rgba(0, 0, 0, 0.827) ;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-nav .custom-nav-item:hover {
+  color: rgb(255, 128, 0) !important;
+}
+
+/* Mobile Menu Button */
+.navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons - Equal Size */
+.signup-btn, .login-btn {
+  color: white !important;
+  background-color: rgb(255, 128, 0) !important;
+  border-radius: 8px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.signup-btn:hover, .login-btn:hover {
+  background-color: rgba(9, 9, 9, 0.8)!important;
+}
+.lead{
+  color: black;
+  font-weight:500 !important;
+}
+
+/* Mobile View */
+@media (max-width: 900px) {
+  .custom-nav {
+    width: 100%;
+  }
+  
+  .nav-item {
+    margin: 5px 0;
+  }
+  
+  .signup-btn, .login-btn {
+    display: inline-block;
+    width: 120px;
+    margin: 8px auto !important;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 992px) {
+  .signup-btn {
+    margin-right: 5px !important;
+  }
+  
+  .login-btn {
+    margin-left: 5px !important;
+  }
+}
+/* Nav section end */
+
+
+
+
+
+/* Welcome section............................................................. */
+.welcome-section {
+  background-color: rgba(255, 128, 0, 0.684); /* Your exact orange color */
+  height: 300px; /* Fixed height as requested */
+  width: 100%;
+}
+/* Welcome section end */
+
+
+/* start Courses *.........................................../ */
+ .text-center{
+  color: rgb(255, 128, 0);
+ }
+  .enroll-btn {
+    background-color: rgb(255, 128, 0) !important ;
+    color: white !important;
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: bold !important;
+  }
+  
+  .enroll-btn:hover {
+    background-color: rgba(9, 9, 9, 0.8) !important;
+    transform: translateY(-2px);
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .view-all-btn {
+    background-color: rgb(255, 128, 0) !important;
+    color: white !important;
+    padding: 10px 30px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .view-all-btn:hover {
+    background-color: rgba(9, 9, 9, 0.8) !important;
+    color: white !important;
+  }
+/* end courses
+
+
+/* contact section start...................................................... */
+
+.contact-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  color: rgb(255, 128, 0);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 2;
+  min-width: 300px;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: rgb(255, 128, 0);
+  box-shadow: 0 0 0 0.25rem rgba(255, 128, 0, 0.25);
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: rgb(255, 128, 0);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: rgba(9, 9, 9, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Info Card */
+.info-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  height: 100%;
+  border-top: 4px solid rgb(255, 128, 0);
+}
+
+.info-card h4 {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.info-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-list i {
+  color: rgb(255, 128, 0);
+  margin-right: 0.8rem;
+  margin-top: 0.2rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.info-list a {
+  color: rgb(255, 128, 0);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.info-list a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+/* contact section end */
+
+
+
+/* feedback section start................................................... */
+
+.feedback-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  color: rgb(255, 128, 0);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+/* Feedback Card */
+.feedback-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2.5rem;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-top: 4px solid rgb(255, 128, 0);
+}
+
+.student-name {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.feedback-text {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgb(255, 128, 0);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: 60%;
+}
+
+.carousel-control-prev {
+  left: -5%;
+}
+
+.carousel-control-next {
+  right: -5%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-card {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-control-prev {
+    left: -10%;
+  }
+  
+  .carousel-control-next {
+    right: -10%;
+  }
+}
+/* feedback section end */
+
+
+
+
+/* Footer start .................................................................*/
+/* Footer Base Styles */
+.custom-footer {
+  background-color: #212529;
+  color: #ffffff;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+/* Headings */
+.custom-footer h5 {
+  color: rgb(255, 128, 0);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Dividers */
+.footer-divider {
+  background-color: #f8f9fa;
+  width: 50%;
+  height: 1px;
+  margin: 0 auto 1rem;
+  border: none;
+}
+
+/* About Section */
+.footer-about p {
+  margin-bottom: 1rem;
+}
+
+.features-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.features-list {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.features-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.footer-contact p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-contact i {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.website-link {
+  color: rgb(255, 128, 0) !important;
+  text-decoration: none !important;
+}
+
+/* Courses Section */
+.course-list {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.course-list li {
+  margin-bottom: 0.5rem;
+}
+
+.course-list a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Social Media */
+.social-title {
+  color: rgb(255, 128, 0);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+}
+
+.facebook { background-color: #3b5998; }
+.youtube { background-color: #ff0000; }
+.twitter { background-color: #1da1f2; }
+.whatsapp { background-color: #25d366; }
+.linkedin { background-color: #0077b5; }
+
+/* Copyright */
+.copyright {
+  margin-bottom: 0.5rem;
+}
+
+.admin-login a {
+  color: rgb(255, 128, 0) !important;
+  text-decoration: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-about,
+  .footer-contact,
+  .footer-courses {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-divider {
+    width: 30%;
+  }
+}
+
+/* Footer end */
+
+/* Optional custom styling */
+  #registrationModal .modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  #registrationModal .modal-header {
+    padding: 1.5rem 1.5rem 0;
+  }
+  
+  #registrationModal .modal-title {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  #registrationModal .modal-body {
+    padding: 1.5rem;
+  }
+  
+  #registrationModal .form-control {
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  #registrationModal .form-control:focus {
+    border-color: rgb(255, 128, 0);
+    box-shadow: 0 0 0 0.25rem rgba(255, 128, 0, 0.25);
+  }
+  
+  #registrationModal .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 128, 0, 0.25);
+  }
+  
+  #registrationModal .modal-footer {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  /* Registration and login modal start */
+  
+
+  .modal-content {
+    border-radius: 15px;
+  }
+  
+  .form-control {
+    padding: 10px 15px;
+  }
+  
+  .form-control:focus {
+    border-color: rgb(255, 128, 0);
+    box-shadow: 0 0 0 0.25rem rgba(255, 128, 0, 0.1);
+  }
+  
+  .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 128, 0, 0.25);
+  }
+  
+  /* Password Toggle */
+  .toggle-password {
+    border-left: none;
+    background-color: #f8f9fa;
+  }
+  
+  .toggle-password.active .fa-eye {
+    display: none;
+  }
+  
+  .toggle-password:not(.active) .fa-eye-slash {
+    display: none;
+  }
+
+
+
+  /* Registration and login modal end */
+
+
+  /* start Coursedetail */
+  .course-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.btn-enroll {
+    background-color: #ff8000 !important;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+}
+
+
+  /* End Coursedetail */
