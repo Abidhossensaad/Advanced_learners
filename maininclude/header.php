@@ -15,52 +15,83 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<style>
+.profile-btn, .logout-btn {
+  color: white !important;
+  background-color: rgb(255, 128, 0) !important;
+  border-radius: 8px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.profile-btn:hover, .logout-btn:hover {
+  background-color: rgba(9, 9, 9, 0.8)!important;
+}
+</style>
+
+
 
 <body>
-  <!-- Start navigation -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top underline-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.php">AdvancedLearners</a>
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav custom-nav mx-auto me-lg-0 fw-bold text-center">
-          <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="courses.php">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="index.php#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="index.php#feedback">Feedback</a>
-          </li>
-          <li class="nav-item my-1 my-lg-0">
-            <!-- Updated Signup button with modal trigger -->
-            <a class="nav-link custom-nav-item signup-btn mx-lg-1" data-bs-toggle="modal" data-bs-target="#stusignupModal"
-              href="#">
-              Signup
-            </a>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+<!-- Start navigation -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top underline-nav">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.php">AdvancedLearners</a>
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav custom-nav mx-auto me-lg-0 fw-bold text-center">
+  <li class="nav-item">
+    <a class="nav-link custom-nav-item" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link custom-nav-item" href="courses.php">Courses</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link custom-nav-item" href="index.php#contact">Contact</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link custom-nav-item" href="index.php#feedback">Feedback</a>
+  </li>
 
-          <li class="nav-item my-1 my-lg-0">
-            <a class="nav-link custom-nav-item login-btn mx-lg-1" data-bs-toggle="modal" data-bs-target="#stuloginModal"
-              href="#">
-              Login
-            </a>
-          </li>
-        </ul>
-      </div>
+  <?php if (isset($_SESSION['is_login']) && $_SESSION['is_login'] === true): ?>
+    <!-- Logged-in User -->
+    <li class="nav-item my-1 my-lg-0">
+    <a class="nav-link custom-nav-item profile-btn mx-lg-1" href="Student/studentprofile.php">My Profile</a>
+    </li>
+    <li class="nav-item my-1 my-lg-0">
+    <a class="nav-link custom-nav-item logout-btn mx-lg-1" href="logout.php">Logout</a>
+    </li>
+  <?php else: ?>
+    <!-- Guest View -->
+    <li class="nav-item my-1 my-lg-0">
+      <a class="nav-link custom-nav-item signup-btn mx-lg-1" data-bs-toggle="modal" data-bs-target="#stusignupModal" href="#">
+        Signup
+      </a>
+    </li>
+    <li class="nav-item my-1 my-lg-0">
+      <a class="nav-link custom-nav-item login-btn mx-lg-1" data-bs-toggle="modal" data-bs-target="#stuloginModal" href="#">
+        Login
+      </a>
+    </li>
+  <?php endif; ?>
+</ul>
+
     </div>
-  </nav>
-  <!-- End navigation -->
+  </div>
+</nav>
+<!-- End navigation -->
+
 
 
   <!-- Registration Modal start -->
@@ -76,7 +107,7 @@
         <div class="modal-body px-4">
           <!--  start student signup form -->
           <?php
-          include('./studentregistration.php')
+          include('Student/studentregistration.php')
           ?>
           <!--  end student signup form -->
         </div>
@@ -86,6 +117,17 @@
 
 
   <!-- Refgistration Modal End -->
+  <script>
+  // When the modal is fully hidden, reset the form
+  var signupModal = document.getElementById('stusignupModal');
+  signupModal.addEventListener('hidden.bs.modal', function () {
+    document.getElementById('stuSignupForm').reset();
+    document.getElementById('statusMsg1').innerHTML = "";
+    document.getElementById('statusMsg2').innerHTML = "";
+    document.getElementById('statusMsg3').innerHTML = "";
+    document.getElementById('signupSuccessMessage').innerHTML = "";
+  });
+</script>
 
 
 
@@ -99,22 +141,32 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body px-4">
-          <form id="stuLoginForm">
-            <div class="mb-3">
-              <label class="form-label text-secondary">Email</label>
-              <input type="email" class="form-control rounded-pill" placeholder="Enter email" required id="stuLogemail" name="stuLogemail">
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-secondary">Password</label>
-              <input type="password" class="form-control rounded-pill" placeholder="Enter password" required id="stuLogpass" name="stuLogpass">
-            </div>
-            <div class="mb-3 text-end">
-              <a href="#" class="text-decoration-none" style="color: #ff8000;">Forgot password?</a>
-            </div>
-            <button id="stuLoginBtn" type="submit" class="btn w-100 rounded-pill" style="background-color: #ff8000; color: white;">Login</button>
-          </form>
+           <!--  start student login form -->
+           <?php
+          include('Student/studentlogin.php')
+          ?>
+          <!--  end student login form -->
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+  // Clear login form on modal close
+  var loginModal = document.getElementById('stuloginModal');
+  loginModal.addEventListener('hidden.bs.modal', function () {
+    document.getElementById('stuLoginForm').reset();
+    document.getElementById('statusLogMsg').innerHTML = "";
+  });
+</script>
+
   <!-- Login Modal end -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"> </script>
+  <script src="js/all.min.js"> </script>
+  <script type="text/javascript" src="js/ajaxrequest.js"></script>
+  <script type="text/javascript" src="js/ajaxstuLogin.js"></script>
+  <script type="text/javascript" src="js/ajaxadminLogin.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

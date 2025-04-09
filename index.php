@@ -1,10 +1,11 @@
-  <!-- Start Heade -->
+  <!-- Start Header -->
   <?php
   include('./maininclude/header.php')
   ?>
   
   <!-- End Header-->
-
+  <?php if (!isset($_SESSION)) { session_start(); } ?>
+<?php if (!isset($_SESSION['is_login'])): ?>
   <!-- Miidle text -->
   <section class="welcome-section">
     <div class="container h-100">
@@ -16,6 +17,7 @@
       </div>
     </div>
   </section>
+  <?php endif; ?>
   <!-- text banner -->
   <div class="container-fluid bg-dark text-white py-2">
     <div class="row text-center">
@@ -30,10 +32,9 @@
       </div>
     </div>
   </div>
-
   <!-- text banner end -->
 
-  <!-- Middle text end -->
+
 
 
   <!-- Start Most Popular Courses Section -->

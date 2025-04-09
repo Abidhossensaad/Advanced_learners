@@ -73,6 +73,39 @@
 }
 /* Nav section end */
 
+/* My Profile and Logout Buttons - Same Style as Signup/Login */
+.profile-btn, .logout-btn {
+  color: white !important;
+  background-color: rgb(255, 128, 0) !important;
+  border-radius: 8px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.profile-btn:hover, .logout-btn:hover {
+  background-color: rgba(9, 9, 9, 0.8)!important;
+}
+/* Mobile View */
+@media (max-width: 900px) {
+  .profile-btn, .logout-btn {
+    display: inline-block;
+    width: 120px;
+    margin: 8px auto !important;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 992px) {
+  .profile-btn {
+    margin-right: 5px !important;
+  }
+
+  .logout-btn {
+    margin-left: 5px !important;
+  }
+}
+
+
 
 
 

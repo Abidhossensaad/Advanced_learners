@@ -1,13 +1,8 @@
-
-
 function addstu() {
     var stuname = $("#stuname").val();
     var stuemail = $("#stuemail").val();
     var stupass = $("#stupass").val();
- 
-    // Clear previous messages
-    $("#statusMsg1, #statusMsg2, #statusMsg3").html("");
-    $('#signupSuccessMessage').html("");
+
 
     // Form validation
     if(stuname.trim() == "") {
@@ -30,35 +25,50 @@ function addstu() {
         $("#stuemail").focus();
         return false;
     }
-    else {
-        $.ajax({
-            url: "Student/addstudent.php",
-            method: "POST",
-            dataType: "json",
-            data: {
-                stusignup: "signup",
-                stuname: stuname,
-                stuemail: stuemail,
-                stupass: stupass
-            },
-            success: function(data) {
-                console.log(data);
-                if(data == "OK") {
-                    $('#signupSuccessMessage').html("<span class='alert alert-success'>Successfully Signup!</span>");
-                    // Clear form on success
-                    $("#stuname, #stuemail, #stupass").val("");
-                } 
-                else if(data == "Failed") {
-                    $('#signupSuccessMessage').html("<span class='alert alert-danger'>Unable to Signup!</span>");
-                }
-                else {
-                    // Show specific error messages from server
-                    $('#signupSuccessMessage').html("<span class='alert alert-danger'>" + data + "</span>");
-                }
-            },
-            error: function() {
-                $('#signupSuccessMessage').html("<span class='alert alert-danger'>Request failed. Please try again.</span>");
+  
+   
+    $.ajax({
+        url: "Student/addstudent.php",
+        method: "POST",
+        dataType: "json",
+        data: {
+            stusignup: "stusignup",
+            stuname: stuname,
+            stuemail: stuemail,
+            stupass: stupass
+        },
+        success: function(data) {
+            console.log(data);
+            if(data == "OK") {
+                $('#signupSuccessMessage').html("<span class='alert alert-success'>Successfully Signup!</span>");
+                // Clear form on success
+                $("#stuname, #stuemail, #stupass").val("");
+                clearSturegField();
+            } 
+            else if(data == "Failed") {
+                $('#signupSuccessMessage').html("<span class='alert alert-danger'>Unable to Signup!</span>");
             }
-        });
-    }   
+            else {
+                // Show specific error messages from server
+                $('#signupSuccessMessage').html("<span class='alert alert-danger'>" + data + "</span>");
+            }
+        },
+        error: function() {
+            $('#signupSuccessMessage').html("<span class='alert alert-danger'>Request failed. Please try again.</span>");
+        }
+    });
 }
+
+
+    // Clear previous messages
+    // Clear Successfull message
+    function clearSturegField(){
+        $("#stuSignupForm").trigger("reset");
+        $("#statusMsg1").html("");
+        $("#statusMsg2").html("");
+        $("#statusMsg3").html("");
+    }
+
+
+   
+    
