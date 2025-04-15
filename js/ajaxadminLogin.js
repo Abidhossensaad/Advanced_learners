@@ -23,7 +23,7 @@
                 );
 
                 setTimeout(function () {
-                    window.location.href = "Admin/adminprofile.php";
+                    window.location.href = "Admin/admindashboard.php";
                 }, 800);
             } else {
                 $("#statusAdminLogMsg").html(

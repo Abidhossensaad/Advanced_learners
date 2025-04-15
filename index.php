@@ -47,7 +47,7 @@
       <!-- Course 1: Python -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/pythonimg.jpg" class="card-img-top" alt="Learn Python">
+          <img src="image/courseimg/pythonimg.jpg" class="card-img-top" alt="Learn Python">
           <div class="card-body">
             <h5 class="card-title">Learn Python</h5>
             <p class="card-text">Master Python programming from basics to advanced concepts including OOP, data structures, and popular libraries like NumPy and Pandas.</p>
@@ -67,7 +67,7 @@
       <!-- Course 2: AI -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/ai.jpg" class="card-img-top" alt="Artificial Intelligence">
+          <img src="image/courseimg/ai.jpg" class="card-img-top" alt="Artificial Intelligence">
           <div class="card-body">
             <h5 class="card-title">Artificial Intelligence</h5>
             <p class="card-text">Learn AI fundamentals including machine learning, neural networks, and deep learning using TensorFlow and PyTorch frameworks.</p>
@@ -87,7 +87,7 @@
       <!-- Course 3: React -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/react.jpg" class="card-img-top" alt="React JS">
+          <img src="image/courseimg/react.jpg" class="card-img-top" alt="React JS">
           <div class="card-body">
             <h5 class="card-title">React JS Development</h5>
             <p class="card-text">Build modern web applications with React, covering hooks, context API, Redux, and React Router for single-page applications.</p>
@@ -107,7 +107,7 @@
       <!-- Course 4: Data Science -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/data science.jpg" class="card-img-top" alt="Data Science">
+          <img src="image/courseimg/data science.jpg" class="card-img-top" alt="Data Science">
           <div class="card-body">
             <h5 class="card-title">Data Science Bootcamp</h5>
             <p class="card-text">Complete data science training covering data analysis, visualization, machine learning, and statistical modeling with Python.</p>
@@ -127,7 +127,7 @@
       <!-- Course 5: JavaScript -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/js.jpg" class="card-img-top" alt="JavaScript">
+          <img src="image/courseimg/js.jpg" class="card-img-top" alt="JavaScript">
           <div class="card-body">
             <h5 class="card-title">Modern JavaScript</h5>
             <p class="card-text">Master JavaScript ES6+, asynchronous programming, DOM manipulation, and modern JS frameworks preparation.</p>
@@ -147,7 +147,7 @@
       <!-- Course 6: Node.js -->
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="image/NodeJS.jpg" class="card-img-top" alt="Node JS">
+          <img src="image/courseimg/NodeJS.jpg" class="card-img-top" alt="Node JS">
           <div class="card-body">
             <h5 class="card-title">Node.js Backend Development</h5>
             <p class="card-text">Learn to build scalable server-side applications using Node.js, Express, MongoDB, and RESTful API development.</p>

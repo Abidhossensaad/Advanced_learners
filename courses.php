@@ -14,7 +14,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/pythonimg.jpg" class="card-img-top img-fluid" alt="Learn Python" style="object-fit: cover;">
+          <img src="image/courseimg/pythonimg.jpg" class="card-img-top img-fluid" alt="Learn Python" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Learn Python</h5>
@@ -36,7 +36,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/ai.jpg" class="card-img-top img-fluid" alt="Artificial Intelligence" style="object-fit: cover;">
+          <img src="image/courseimg/ai.jpg" class="card-img-top img-fluid" alt="Artificial Intelligence" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Artificial Intelligence</h5>
@@ -58,7 +58,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/react.jpg" class="card-img-top img-fluid" alt="React JS" style="object-fit: cover;">
+          <img src="image/courseimg/react.jpg" class="card-img-top img-fluid" alt="React JS" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">React JS Development</h5>
@@ -80,7 +80,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/data science.jpg" class="card-img-top img-fluid" alt="Data Science" style="object-fit: cover;">
+          <img src="image/courseimg/data science.jpg" class="card-img-top img-fluid" alt="Data Science" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Data Science Bootcamp</h5>
@@ -102,7 +102,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/js.jpg" class="card-img-top img-fluid" alt="JavaScript" style="object-fit: cover;">
+          <img src="image/courseimg/js.jpg" class="card-img-top img-fluid" alt="JavaScript" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Modern JavaScript</h5>
@@ -124,7 +124,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/NodeJS.jpg" class="card-img-top img-fluid" alt="Node JS" style="object-fit: cover;">
+          <img src="image/courseimg/NodeJS.jpg" class="card-img-top img-fluid" alt="Node JS" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Node.js Backend Development</h5>
@@ -146,7 +146,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/flutter.jpg" class="card-img-top img-fluid" alt="Flutter Development" style="object-fit: cover;">
+          <img src="image/courseimg/flutter.jpg" class="card-img-top img-fluid" alt="Flutter Development" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Flutter Mobile Development</h5>
@@ -168,7 +168,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/cybersecurity.jpg" class="card-img-top img-fluid" alt="Cybersecurity" style="object-fit: cover;">
+          <img src="image/courseimg/cybersecurity.jpg" class="card-img-top img-fluid" alt="Cybersecurity" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Cybersecurity Fundamentals</h5>
@@ -190,7 +190,7 @@
     <div class="col">
       <div class="card h-100 shadow-sm">
         <div class="ratio ratio-16x9">
-          <img src="image/cloud.jpg" class="card-img-top img-fluid" alt="Cloud Computing" style="object-fit: cover;">
+          <img src="image/courseimg/cloud.jpg" class="card-img-top img-fluid" alt="Cloud Computing" style="object-fit: cover;">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Cloud Computing with AWS</h5>

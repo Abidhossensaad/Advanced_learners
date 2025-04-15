@@ -20,7 +20,7 @@
                         <span class="badge bg-light text-dark small">8 Hours</span>
                         <span class="badge bg-light text-dark small">Certificate</span>
                     </div>
-                    <img src="image/pythonimg.jpg" class="img-fluid rounded mb-3" alt="Python Course">
+                    <img src="image/courseimg/pythonimg.jpg" class="img-fluid rounded mb-3" alt="Python Course">
                     <p class="small mb-4">Master Python programming from basics to advanced concepts including OOP, data structures, and popular libraries like NumPy and Pandas.</p>
                     
                     <h3 class="h5 fw-bold mb-3">Course Outline</h3>
