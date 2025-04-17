@@ -1,47 +1,55 @@
 <!-- feedback start -->
-
 <div class="feedback-section" id="feedback">
-    <div class="container">
-      <h2 class="section-title">Student's Feedback</h2>
+  <div class="container">
+    <h2 class="section-title">Student's Feedback</h2>
 
-      <!-- Feedback Carousel -->
-      <div id="feedbackCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+    <!-- Feedback Carousel -->
+    <div id="feedbackCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
 
-          <!-- Feedback Item 1 -->
+        <?php
+        include('./dbConnection.php'); // update path if needed
+
+        $sql = "SELECT f.f_content, s.stu_name 
+                FROM feedback f 
+                JOIN student s ON f.stu_id = s.stu_id 
+                ORDER BY f.f_id DESC";
+
+        $result = $conn->query($sql);
+        $isFirst = true;
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo '
+            <div class="carousel-item' . ($isFirst ? ' active' : '') . '">
+              <div class="feedback-card">
+                <h5 class="student-name">' . htmlspecialchars($row['stu_name']) . '</h5>
+                <p class="feedback-text">"' . htmlspecialchars($row['f_content']) . '"</p>
+              </div>
+            </div>';
+            $isFirst = false;
+          }
+        } else {
+          echo '
           <div class="carousel-item active">
             <div class="feedback-card">
-              <h5 class="student-name">John Doe</h5>
-              <p class="feedback-text">"The courses are well structured and easy to follow. I really enjoyed learning at Advanced Learners! Highly recommend it to anyone looking to grow their skills."</p>
+              <h5 class="student-name">No Feedback Yet</h5>
+              <p class="feedback-text">"Be the first to leave a review!"</p>
             </div>
-          </div>
+          </div>';
+        }
+        ?>
 
-          <!-- Feedback Item 2 -->
-          <div class="carousel-item">
-            <div class="feedback-card">
-              <h5 class="student-name">Jane Smith</h5>
-              <p class="feedback-text">"The content was clear and concise. I highly recommend these courses for anyone wanting to learn more in a short period of time. Great learning experience!"</p>
-            </div>
-          </div>
-
-          <!-- Feedback Item 3 -->
-          <div class="carousel-item">
-            <div class="feedback-card">
-              <h5 class="student-name">Ali Raza</h5>
-              <p class="feedback-text">"Fantastic experience! The interactive lessons and the support from instructors were excellent. I feel much more confident in my skills now."</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
       </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
   </div>
-
-  <!-- feedback end -->
+</div>
+<!-- feedback end -->

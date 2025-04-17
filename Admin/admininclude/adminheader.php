@@ -16,76 +16,74 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container-fluid">
-            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="admindashboard.php">
-                &nbsp; AdvancedLearners <small>(Admin Area)</small>
-            </a>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="../index.php">
+            &nbsp; AdvancedLearners &nbsp; <small>(Admin Area)</small>
+        </a>
+    </div>
+</nav>
 
-    <!-- Side Bar -->
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <nav class="col-sm-3 col-md-2 sidebar py-5 d-print-none" id="sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="admindashboard.php">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="coursesadmin.php">
-                                <i class="fas fa-book"></i> Courses
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="lessons.php">
-                                <i class="fas fa-file-alt"></i> Lessons
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="studentsadmin.php">
-                                <i class="fas fa-users"></i> Students
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sellreport.php">
-                                <i class="fas fa-chart-line"></i> Sell Report
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="paymentstatus.php">
-                                <i class="fas fa-credit-card"></i> Payment Status
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="feedback.php">
-                                <i class="fas fa-comment"></i> Feedback
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="adminChangePass.php">
-                                <i class="fas fa-key"></i> ChangePassword
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../logout.php">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <script>
-        function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('show');
-}
-    </script>
+<!-- Side Bar -->
+<div class="container-fluid mt-5">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 sidebar py-5 d-print-none" id="sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'admindashboard.php' ? 'active' : ''; ?>" href="admindashboard.php">
+                            <i class="fas fa-tachometer-alt"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'coursesadmin.php' ? 'active' : ''; ?>" href="coursesadmin.php">
+                            <i class="fas fa-book"></i> Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'lessons.php' ? 'active' : ''; ?>" href="lessons.php">
+                            <i class="fas fa-file-alt"></i> Lessons
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'studentsadmin.php' ? 'active' : ''; ?>" href="studentsadmin.php">
+                            <i class="fas fa-users"></i> Students
+                        </a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'paymentstatus.php' ? 'active' : ''; ?>" href="#">
+                            <i class="fas fa-credit-card"></i> Payment Status
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'adminfeedback.php' ? 'active' : ''; ?>" href="adminfeedback.php">
+                            <i class="fas fa-comment"></i> Feedback
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'adminChangePass.php' ? 'active' : ''; ?>" href="adminChangePass.php">
+                            <i class="fas fa-key"></i> ChangePassword
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../logout.php">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            function toggleSidebar() {
+                document.getElementById('sidebar').classList.toggle('show');
+            }
+        </script>
+
 
 
     <!-- Bootstrap JS -->

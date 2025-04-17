@@ -13,17 +13,23 @@ if (!isset($_SESSION['is_admin_login'])) {
 $adminEmail = $_SESSION['adminLogemail'];
 $row = [];
 
-if (isset($_POST['lesson_id'])) {
-    $lesson_id = $_POST['lesson_id'];
-    $sql = "SELECT * FROM lesson WHERE lesson_id = '$lesson_id'";
+$lesson_id = $_POST['lesson_id'] ?? $_GET['lesson_id'] ?? null;
+
+// Fetch lesson info with course name using JOIN
+if ($lesson_id) {
+    $sql = "SELECT lesson.*, course.course_name 
+            FROM lesson 
+            JOIN course ON lesson.course_id = course.course_id 
+            WHERE lesson.lesson_id = '$lesson_id'";
     $result = $conn->query($sql);
-    if ($result->num_rows == 1) {
+    if ($result && $result->num_rows == 1) {
         $row = $result->fetch_assoc();
     } else {
         $msg = '<div class="alert alert-danger mt-2">Lesson not found.</div>';
     }
 }
 
+// Handle update
 if (isset($_POST['updateLesson'])) {
     $lesson_id = $_POST['lesson_id'];
     $lesson_name = $_POST['lesson_name'];
@@ -38,6 +44,16 @@ if (isset($_POST['updateLesson'])) {
 
     if ($conn->query($sql) === TRUE) {
         $msg = "<div class='alert alert-success col-sm-6 mt-2'>Lesson Updated Successfully!</div>";
+
+        // Refresh course name again
+        $sql = "SELECT lesson.*, course.course_name 
+                FROM lesson 
+                JOIN course ON lesson.course_id = course.course_id 
+                WHERE lesson.lesson_id = '$lesson_id'";
+        $result = $conn->query($sql);
+        if ($result && $result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+        }
     } else {
         $msg = "<div class='alert alert-danger col-sm-6 mt-2'>Failed to Update Lesson</div>";
     }
@@ -56,14 +72,14 @@ if (isset($_POST['updateLesson'])) {
                         <form method="POST">
                             <input type="hidden" name="lesson_id" value="<?php echo $row['lesson_id']; ?>">
 
-                            <!-- Course Info (non-editable, in one line) -->
-                            <div class="form-group mb-3 ">
+                            <!-- Course Info -->
+                            <div class="form-group mb-3">
                                 <label class="form-label mr-2">Course ID:</label>
                                 <p class="form-control-plaintext fw-bold mb-0"><?php echo $row['course_id']; ?></p>
                                 <input type="hidden" name="course_id" value="<?php echo $row['course_id']; ?>">
                             </div>
 
-                            <div class="form-group mb-4 ">
+                            <div class="form-group mb-4">
                                 <label class="form-label mr-2">Course Name:</label>
                                 <p class="form-control-plaintext fw-bold mb-0"><?php echo $row['course_name']; ?></p>
                                 <input type="hidden" name="course_name" value="<?php echo $row['course_name']; ?>">

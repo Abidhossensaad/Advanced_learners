@@ -1,111 +1,121 @@
-  <!-- Start navigation -->
-  <?php
-  include('./maininclude/header.php')
-  ?>
-  
-  <!-- End navigation -->
+<!-- Start navigation -->
+<?php
+include('./maininclude/header.php');
+include_once('./dbConnection.php');
 
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-<!-- Start coursedetail -->
+// Success message handler
+$successMsg = "";
+$errorMsg = "";
 
-    <!-- Main Content -->
-    <div class="container py-4 mt-5">
-        <div class="row g-4">
-            <!-- Course Details -->
-            <div class="col-lg-8">
-                <div class="course-card p-4 mb-4">
-                    <h1 class="h4 fw-bold mb-3">Learn Python Programming</h1>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                        <span class="badge bg-light text-dark small">Beginner</span>
-                        <span class="badge bg-light text-dark small">8 Hours</span>
-                        <span class="badge bg-light text-dark small">Certificate</span>
-                    </div>
-                    <img src="image/courseimg/pythonimg.jpg" class="img-fluid rounded mb-3" alt="Python Course">
-                    <p class="small mb-4">Master Python programming from basics to advanced concepts including OOP, data structures, and popular libraries like NumPy and Pandas.</p>
-                    
-                    <h3 class="h5 fw-bold mb-3">Course Outline</h3>
-                    <div class="list-group list-group-flush small mb-4">
-                        <div class="list-group-item py-2">
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-medium">Module : Python Basics</span>
-                                <span class="text-muted">8h</span>
-                            </div>
-                        </div>
-                        <div class="list-group-item py-2">
-                            <div class="d-flex justify-content-between">
-                                <span>→ Introduction to Python</span>
-                                <span class="text-muted">45m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Enrollment Form -->
-            <div class="col-lg-4">
-                <div class="enroll-form p-4">
-                    <h3 class="h5 fw-bold mb-3">Enroll Now</h3>
-                    
-                    <form action="process_enrollment.php" method="POST">
-                        <!-- Hidden Course ID -->
-                        <input type="hidden" name="course_id" value="python_basic">
-                                                <!-- Personal Information -->
-                                                <div class="mb-3">
-                            <label for="fullname" class="form-label small fw-bold">Full Name</label>
-                            <input type="text" class="form-control form-control-sm" id="fullname" name="fullname" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="email" class="form-label small fw-bold">Email</label>
-                            <input type="email" class="form-control form-control-sm" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="phone" class="form-label small fw-bold">Phone Number</label>
-                            <input type="tel" class="form-control form-control-sm" id="phone" name="phone" required>
-                        </div>
+// Handle course ID
+if (isset($_GET['course_id'])) {
+    $course_id = intval($_GET['course_id']);
 
-                        
-                       
-                        
-                        <!-- Course Pricing -->
-                        <div class="bg-light p-3 rounded mb-3">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="small">Course Fee:</span>
-                                <span class="small">৳15,000</span>
-                            </div>
-                            <div class="d-flex justify-content-between fw-bold">
-                                <span>Discount:</span>
-                                <span class="text-danger">-৳3,000</span>
-                            </div>
-                            <hr class="my-2">
-                            <div class="d-flex justify-content-between fw-bold">
-                                <span>Total Payable:</span>
-                                <span>৳12,000</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Terms Agreement -->
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
-                            <label class="form-check-label small" for="terms">
-                                I agree to the <a href="#" class="text-decoration-none">Terms & Conditions</a>
-                            </label>
-                        </div>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn btn-enroll w-100">Complete Enrollment</button>
-                    </form>
-                </div>
-            </div>
+    // Fetch course info
+    $sql = "SELECT * FROM course WHERE course_id = $course_id";
+    $result = $conn->query($sql);
+    $course = $result->fetch_assoc();
+
+    // Fetch lessons
+    $lessons_sql = "SELECT lesson_id, lesson_name FROM lesson WHERE course_id = $course_id";
+    $lessons_result = $conn->query($lessons_sql);
+} else {
+    echo "<script>location.href='index.php';</script>";
+}
+?>
+
+<div class="container mt-5 pt-5" style="margin-top: 100px;">
+
+    <?php
+    // Handle course purchase
+    if (isset($_POST['buy_course']) && isset($_SESSION['stuLogemail'])) {
+        $stu_email = $_SESSION['stuLogemail'];
+        $stu_sql = "SELECT stu_id FROM student WHERE stu_email = '$stu_email'";
+        $stu_result = $conn->query($stu_sql);
+        $stu_row = $stu_result->fetch_assoc();
+        $stu_id = $stu_row['stu_id'];
+        $course_id = intval($_POST['course_id']);
+
+        $check_sql = "SELECT * FROM studentcourse WHERE stu_id = $stu_id AND course_id = $course_id";
+        $check_result = $conn->query($check_sql);
+
+        if ($check_result->num_rows == 0) {
+            $enroll_sql = "INSERT INTO studentcourse (stu_id, course_id) VALUES ($stu_id, $course_id)";
+            if ($conn->query($enroll_sql)) {
+                $successMsg = "🎉 You have successfully purchased this course!";
+            } else {
+                $errorMsg = "❌ Something went wrong. Please try again.";
+            }
+        } else {
+            $errorMsg = "⚠️ You already purchased this course.";
+        }
+    }
+
+    if ($successMsg != "") {
+        echo '<div class="alert alert-success">' . $successMsg . '</div>';
+    }
+    if ($errorMsg != "") {
+        echo '<div class="alert alert-danger">' . $errorMsg . '</div>';
+    }
+    ?>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="image/courseimg/<?php echo $course['course_img']; ?>" class="img-fluid" alt="<?php echo $course['course_name']; ?>">
+        </div>
+
+        <div class="col-md-7">
+            <h2><?php echo $course['course_name']; ?></h2>
+            <p><?php echo $course['course_desc']; ?></p>
+            <p><b>Instructor:</b> <?php echo $course['course_author']; ?></p>
+            <p><b>Duration:</b> <?php echo $course['course_duration']; ?></p>
+            <p>
+                <del>TK <?php echo $course['course_original_price']; ?></del>
+                <span class="text-danger fw-bold fs-5 ms-2">TK <?php echo $course['course_price']; ?></span>
+            </p>
+            <?php
+            if (isset($_SESSION['is_login'])) {
+                echo '
+                <form method="POST" action="">
+                    <input type="hidden" name="course_id" value="' . $course_id . '">
+                    <button type="submit" name="buy_course" class="buy-btn btn btn-success">Buy Now</button>
+                </form>';
+            } else {
+                echo '<a href="#" class="buy-btn" style="text-decoration: none;" data-toggle="modal" data-target="#stuLoginModalCenter">Login to Buy</a>';
+            }
+            ?>
         </div>
     </div>
 
-   
-<!-- End coursedetail -->
+    <!-- Lesson List -->
+    <div class="mt-5">
+        <?php if ($lessons_result->num_rows > 0): ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Course Lesson</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($lesson = $lessons_result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $lesson['lesson_name']; ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <p class="text-muted">No lessons added yet for this course.</p>
+        <?php endif; ?>
+    </div>
+</div>
 
-  <!-- Footer start -->
- <?php
-  include('./maininclude/footer.php')
-  ?>
-  <!-- Footer end -->
+<!-- Footer start -->
+<?php include('./maininclude/footer.php') ?>
+<!-- Footer end -->
